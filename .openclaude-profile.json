@@ -1,0 +1,12 @@
+{
+  "profile": "openai",
+  "env": {
+    "OPENAI_BASE_URL": "https://openrouter.ai/api/v1",
+    "OPENAI_MODEL": "qwen/qwen3.6-plus:free",
+    "OPENAI_API_FORMAT": "chat_completions",
+    "OPENAI_AUTH_HEADER": "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",
+    "OPENAI_AUTH_SCHEME": "raw",
+    "OPENAI_API_KEY": "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"
+  },
+  "createdAt": "2026-05-01T13:25:00.229Z"
+}
