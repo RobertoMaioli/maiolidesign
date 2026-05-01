@@ -58,7 +58,7 @@
         </div>
 
         <div class="detail-content" data-detail-panel>
-          <div class="score-ring" style="--score: 92; --score-color: #31f7a1">
+          <div class="score-ring" style="--score: 92; --score-color: #9be7b5">
             <span>92</span>
           </div>
           <div>
@@ -73,6 +73,15 @@
         </div>
       </aside>
     </main>
+
+    <!-- Controles de zoom acessíveis -->
+    <div class="zoom-controls" aria-label="Controles de zoom da cena 3D">
+      <button class="zoom-btn" type="button" data-zoom-in aria-label="Aproximar">+</button>
+      <button class="zoom-btn" type="button" data-zoom-out aria-label="Afastar">−</button>
+    </div>
+
+    <!-- Hint de interação — some após a primeira interação -->
+    <p class="zoom-hint" aria-hidden="true">Scroll ou pinch para zoom · Arraste para girar</p>
 
     <div class="category-labels" aria-hidden="true"></div>
     <div class="tooltip" role="status" aria-live="polite" data-tooltip></div>

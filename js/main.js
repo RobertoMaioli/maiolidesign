@@ -12,12 +12,21 @@ const resetButton = document.querySelector("[data-reset-view]");
 const scoreButtons = [...document.querySelectorAll("[data-category-button]")];
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+// ─── Paleta verde Maioli ───────────────────────────────────────────
+// Antes: #38bdf8 (azul), #31f7a1 (verde-água), #a855f7 (roxo)
+// Agora: #35c878 (verde primário), #9be7b5 (menta), #1ead8a (verde profundo)
+const PALETTE = {
+  primary: "#35c878",   // verde Maioli — cor base da marca
+  mint:    "#9be7b5",   // verde menta — destaques, acessibilidade
+  deep:    "#1ead8a",   // verde profundo — contraste, profundidade
+};
+
 const categories = [
   {
     id: "acessibilidade",
     label: "Acessibilidade",
     score: 92,
-    accent: "#31f7a1",
+    accent: PALETTE.mint,       // menta — score alto, identidade inclusiva
     angle: 0,
     summary: "Experiência inclusiva, semântica e navegável.",
     explanation: "Garante que o site seja claro, acessível por teclado e compatível com tecnologias assistivas.",
@@ -27,7 +36,7 @@ const categories = [
     id: "seo",
     label: "SEO",
     score: 88,
-    accent: "#38bdf8",
+    accent: PALETTE.primary,    // verde principal — score bom, visibilidade
     angle: Math.PI / 2,
     summary: "Estrutura preparada para descoberta orgânica.",
     explanation: "Organiza conteúdo e metadados para ajudar mecanismos de busca a entenderem melhor cada página.",
@@ -37,7 +46,7 @@ const categories = [
     id: "performance",
     label: "Performance",
     score: 75,
-    accent: "#a855f7",
+    accent: "#facc15",           // âmbar — score médio, alerta construtivo
     angle: Math.PI,
     summary: "Carregamento rápido e renderização fluida.",
     explanation: "Reduz bloqueios, peso de assets e atrasos visuais para entregar uma navegação mais rápida.",
@@ -47,7 +56,7 @@ const categories = [
     id: "boas-praticas",
     label: "Boas práticas",
     score: 95,
-    accent: "#22c55e",
+    accent: PALETTE.deep,       // verde profundo — score excelente, solidez técnica
     angle: Math.PI * 1.5,
     summary: "Base técnica moderna, segura e confiável.",
     explanation: "Mantém a experiência estável usando APIs atuais, HTTPS e padrões seguros de front-end.",
@@ -98,6 +107,8 @@ function init() {
   createCategoryNodes();
   createParticles();
   bindEvents();
+  setupZoomControls();
+  setupZoomHint();
   updateDetailPanel(categories[0]);
   resetCamera(false);
   animate();
@@ -105,7 +116,8 @@ function init() {
 
 function initScene() {
   scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x080b12, 0.035);
+  // Fog levemente esverdeada para coerência com a paleta
+  scene.fog = new THREE.FogExp2(0x060e0a, 0.035);
   raycaster = new THREE.Raycaster();
   categoryRoot = new THREE.Group();
   scene.add(categoryRoot);
@@ -148,56 +160,64 @@ function initPostProcessing() {
 }
 
 function createLights() {
-  scene.add(new THREE.AmbientLight(0x8fbaff, 0.28));
+  // Ambient esverdeada
+  scene.add(new THREE.AmbientLight(0x8fffc4, 0.24));
 
-  const mainLight = new THREE.PointLight(0x38bdf8, 4.2, 12);
+  // Luz principal: verde primário
+  const mainLight = new THREE.PointLight(0x35c878, 4.2, 12);
   mainLight.position.set(0, 1.2, 1.8);
   scene.add(mainLight);
 
-  const purpleLight = new THREE.PointLight(0xa855f7, 3, 12);
-  purpleLight.position.set(-4, 3, -3);
-  scene.add(purpleLight);
+  // Luz secundária: verde profundo (substituí roxo)
+  const deepLight = new THREE.PointLight(0x1ead8a, 3.0, 12);
+  deepLight.position.set(-4, 3, -3);
+  scene.add(deepLight);
 
-  const greenLight = new THREE.PointLight(0x31f7a1, 2.8, 12);
-  greenLight.position.set(4, -2, 3);
-  scene.add(greenLight);
+  // Luz terciária: menta (substituí verde-água puro)
+  const mintLight = new THREE.PointLight(0x9be7b5, 2.8, 12);
+  mintLight.position.set(4, -2, 3);
+  scene.add(mintLight);
 }
 
 function createCore() {
   coreGroup = new THREE.Group();
   scene.add(coreGroup);
 
+  // Esfera interna com tint verde escuro
   const innerMaterial = new THREE.MeshPhysicalMaterial({
-    color: 0x0d1424,
+    color: 0x0a1a0f,
     roughness: 0.18,
     metalness: 0.42,
     transmission: 0.18,
     transparent: true,
     opacity: 0.78,
-    emissive: 0x102c48,
+    emissive: 0x0f2d18,
     emissiveIntensity: 0.38
   });
   const innerSphere = new THREE.Mesh(new THREE.SphereGeometry(1.08, 72, 72), innerMaterial);
   coreGroup.add(innerSphere);
 
+  // Wireframe em verde primário
   const wireSphere = new THREE.Mesh(
     new THREE.SphereGeometry(1.22, 36, 36),
-    new THREE.MeshBasicMaterial({ color: 0x38bdf8, wireframe: true, transparent: true, opacity: 0.24 })
+    new THREE.MeshBasicMaterial({ color: 0x35c878, wireframe: true, transparent: true, opacity: 0.22 })
   );
   coreGroup.add(wireSphere);
 
+  // Núcleo pulsante em menta
   const glow = new THREE.Mesh(
     new THREE.SphereGeometry(0.42, 48, 48),
-    new THREE.MeshBasicMaterial({ color: 0x31f7a1, transparent: true, opacity: 0.72 })
+    new THREE.MeshBasicMaterial({ color: 0x9be7b5, transparent: true, opacity: 0.72 })
   );
   glow.userData.pulse = true;
   coreGroup.add(glow);
 
-  const ringColors = [0x38bdf8, 0x31f7a1, 0xa855f7];
+  // Anéis em verde primário, menta e verde profundo
+  const ringColors = [0x35c878, 0x9be7b5, 0x1ead8a];
   ringColors.forEach((color, index) => {
     const ring = new THREE.Mesh(
       new THREE.TorusGeometry(1.5 + index * 0.18, 0.012, 16, 160),
-      new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.58 })
+      new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.52 })
     );
     ring.rotation.x = Math.PI / 2 + index * 0.55;
     ring.rotation.y = index * 0.72;
@@ -205,9 +225,10 @@ function createCore() {
     coreGroup.add(ring);
   });
 
+  // Scanline branca sutil
   const scanLine = new THREE.Mesh(
     new THREE.TorusGeometry(1.28, 0.008, 12, 120),
-    new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.38 })
+    new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.28 })
   );
   scanLine.rotation.x = Math.PI / 2;
   scanLine.userData.scan = true;
@@ -262,13 +283,13 @@ function createCategoryNodes() {
 
     const ringBack = new THREE.Mesh(
       new THREE.TorusGeometry(0.58, 0.009, 10, 120),
-      new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.13 })
+      new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.10 })
     );
     group.add(ringBack);
 
     const trail = new THREE.Mesh(
       new THREE.TorusGeometry(orbitRadius, 0.004, 8, 220),
-      new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.13 })
+      new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.11 })
     );
     trail.rotation.x = Math.PI / 2;
     scene.add(trail);
@@ -295,7 +316,12 @@ function createParticles() {
   const count = state.isMobile ? 420 : 1200;
   const positions = new Float32Array(count * 3);
   const colors = new Float32Array(count * 3);
-  const palette = [new THREE.Color("#38bdf8"), new THREE.Color("#31f7a1"), new THREE.Color("#a855f7")];
+  // Partículas totalmente na paleta verde
+  const palette = [
+    new THREE.Color(PALETTE.primary),
+    new THREE.Color(PALETTE.mint),
+    new THREE.Color(PALETTE.deep)
+  ];
 
   for (let i = 0; i < count; i += 1) {
     const i3 = i * 3;
@@ -315,15 +341,63 @@ function createParticles() {
 
   particleField = new THREE.Points(
     geometry,
-    new THREE.PointsMaterial({ size: state.isMobile ? 0.022 : 0.03, vertexColors: true, transparent: true, opacity: 0.74, blending: THREE.AdditiveBlending, depthWrite: false })
+    new THREE.PointsMaterial({ size: state.isMobile ? 0.022 : 0.03, vertexColors: true, transparent: true, opacity: 0.68, blending: THREE.AdditiveBlending, depthWrite: false })
   );
   scene.add(particleField);
+}
+
+// ─── Controles de zoom por botão ─────────────────────────────────
+function setupZoomControls() {
+  const zoomIn  = document.querySelector("[data-zoom-in]");
+  const zoomOut = document.querySelector("[data-zoom-out]");
+  if (!zoomIn || !zoomOut) return;
+
+  const STEP = 0.8;
+
+  zoomIn.addEventListener("click", () => {
+    const dir = new THREE.Vector3().subVectors(controls.target, camera.position).normalize();
+    const dist = camera.position.distanceTo(controls.target);
+    if (dist - STEP >= controls.minDistance) {
+      state.targetCameraPosition.addScaledVector(dir, STEP);
+    }
+    controls.autoRotate = false;
+  });
+
+  zoomOut.addEventListener("click", () => {
+    const dir = new THREE.Vector3().subVectors(controls.target, camera.position).normalize();
+    const dist = camera.position.distanceTo(controls.target);
+    if (dist + STEP <= controls.maxDistance) {
+      state.targetCameraPosition.addScaledVector(dir, -STEP);
+    }
+    controls.autoRotate = false;
+  });
+}
+
+// ─── Hint de zoom (desaparece após interação) ─────────────────────
+function setupZoomHint() {
+  const hint = document.querySelector(".zoom-hint");
+  if (!hint) return;
+
+  let dismissed = false;
+  const dismiss = () => {
+    if (dismissed) return;
+    dismissed = true;
+    hint.classList.add("is-hidden");
+  };
+
+  // Esconde após primeira interação com o canvas ou após 5s
+  canvas.addEventListener("pointerdown", dismiss, { once: true });
+  canvas.addEventListener("wheel", dismiss, { once: true });
+  setTimeout(dismiss, 5000);
 }
 
 function bindEvents() {
   window.addEventListener("resize", onResize);
   window.addEventListener("keydown", (event) => {
     if (event.key === "Escape") resetCamera();
+    // Zoom por teclado (+/-)
+    if (event.key === "+" || event.key === "=") document.querySelector("[data-zoom-in]")?.click();
+    if (event.key === "-") document.querySelector("[data-zoom-out]")?.click();
   });
   document.addEventListener("visibilitychange", () => {
     state.isVisible = document.visibilityState === "visible";
@@ -470,9 +544,9 @@ function updateActiveUi(category) {
 }
 
 function getScoreColor(score) {
-  if (score >= 90) return "#31f7a1";
-  if (score >= 70) return "#facc15";
-  return "#fb7185";
+  if (score >= 90) return PALETTE.mint;    // menta — excelente
+  if (score >= 70) return "#facc15";       // âmbar — médio
+  return "#fb7185";                        // rosa-vermelho — baixo
 }
 
 function onResize() {
