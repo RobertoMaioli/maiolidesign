@@ -355,6 +355,66 @@ function showTestimonial(nextIndex) {
   restartTestimonials();
 }
 
+// Cursor personalizado com glow
+function setupCustomCursor() {
+  const cursor = document.createElement("div");
+  cursor.className = "custom-cursor";
+  document.body.appendChild(cursor);
+
+  const hoverTargets = "a, button, [data-animated-button], [data-portfolio-card]";
+
+  window.addEventListener("pointermove", (e) => {
+    anime({
+      targets: cursor,
+      left: e.clientX,
+      top: e.clientY,
+      duration: prefersReducedMotion ? 0 : 60,
+      easing: "linear"
+    });
+  });
+
+  document.querySelectorAll(hoverTargets).forEach((el) => {
+    el.addEventListener("mouseenter", () => cursor.classList.add("is-hovering"));
+    el.addEventListener("mouseleave", () => cursor.classList.remove("is-hovering"));
+  });
+}
+
+// Contador animado nas stats do hero
+function setupStatCounters() {
+  const stats = [
+    { el: document.querySelector(".hero-stats div:nth-child(1) strong"), target: 98, suffix: "+" },
+    { el: document.querySelector(".hero-stats div:nth-child(2) strong"), target: 3.2, suffix: "x", decimals: 1 },
+  ];
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      stats.forEach(({ el, target, suffix, decimals }) => {
+        if (!el) return;
+        anime({
+          targets: { val: 0 },
+          val: target,
+          duration: 1800,
+          easing: "easeOutExpo",
+          update(anim) {
+            const v = anim.animations[0].currentValue;
+            el.textContent = (decimals ? v.toFixed(decimals) : Math.floor(v)) + suffix;
+          }
+        });
+      });
+      observer.disconnect();
+    });
+  }, { threshold: 0.6 });
+
+  const statsBlock = document.querySelector(".hero-stats");
+  if (statsBlock) observer.observe(statsBlock);
+}
+
+if (!prefersReducedMotion) {
+  setupCustomCursor();
+}
+setupStatCounters();
+
 function restartTestimonials() {
   window.clearInterval(testimonialTimer);
   testimonialTimer = window.setInterval(() => {
