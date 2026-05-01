@@ -26,7 +26,7 @@ const categories = [
   {
     id: "seo",
     label: "SEO",
-    score: 88,
+    score: 100,
     accent: "#38bdf8",
     angle: Math.PI / 2,
     summary: "Estrutura preparada para descoberta orgânica.",
@@ -36,7 +36,7 @@ const categories = [
   {
     id: "performance",
     label: "Performance",
-    score: 75,
+    score: 80,
     accent: "#a855f7",
     angle: Math.PI,
     summary: "Carregamento rápido e renderização fluida.",
@@ -470,7 +470,7 @@ function updateActiveUi(category) {
 }
 
 function getScoreColor(score) {
-  if (score >= 90) return "#31f7a1";
+  if (score >= 80) return "#31f7a1";
   if (score >= 70) return "#facc15";
   return "#fb7185";
 }
