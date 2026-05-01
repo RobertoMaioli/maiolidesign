@@ -35,8 +35,8 @@ const categories = [
   {
     id: "seo",
     label: "SEO",
-    score: 88,
-    accent: PALETTE.primary,    // verde principal — score bom, visibilidade
+    score: 100,
+    accent: "#38bdf8",
     angle: Math.PI / 2,
     summary: "Estrutura preparada para descoberta orgânica.",
     explanation: "Organiza conteúdo e metadados para ajudar mecanismos de busca a entenderem melhor cada página.",
@@ -45,8 +45,8 @@ const categories = [
   {
     id: "performance",
     label: "Performance",
-    score: 75,
-    accent: "#facc15",           // âmbar — score médio, alerta construtivo
+    score: 80,
+    accent: "#a855f7",
     angle: Math.PI,
     summary: "Carregamento rápido e renderização fluida.",
     explanation: "Reduz bloqueios, peso de assets e atrasos visuais para entregar uma navegação mais rápida.",
@@ -544,9 +544,9 @@ function updateActiveUi(category) {
 }
 
 function getScoreColor(score) {
-  if (score >= 90) return PALETTE.mint;    // menta — excelente
-  if (score >= 70) return "#facc15";       // âmbar — médio
-  return "#fb7185";                        // rosa-vermelho — baixo
+  if (score >= 80) return "#31f7a1";
+  if (score >= 70) return "#facc15";
+  return "#fb7185";
 }
 
 function onResize() {
