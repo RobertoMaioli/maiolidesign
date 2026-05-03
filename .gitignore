@@ -7,7 +7,8 @@ node_modules/
 dist/
 build/
 out/
-
+.claude
+.openclaude
 # Variáveis de ambiente e segredos
 .env
 .env.local

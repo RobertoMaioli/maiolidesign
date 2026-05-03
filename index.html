@@ -2,101 +2,212 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Desenvolvimento premium de sites de alta performance, design UI/UX, SEO e serviços de otimização." />
-  <title>Maioli Design | Sites de Alta Performance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-grid.min.css" rel="stylesheet" />
+  <title>Maioli Design | Sites de Alta Performance, UI/UX e SEO</title>
+  <meta
+    name="description"
+    content="Maioli Design cria sites premium, rápidos, responsivos e otimizados para SEO, conversão e experiência do usuário."
+  />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Maioli Design" />
+  <meta name="theme-color" content="#0b0f0d" />
+  <meta name="format-detection" content="telephone=yes" />
+  <link rel="canonical" href="https://maiolidesign.com.br/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Maioli Design" />
+  <meta property="og:title" content="Maioli Design | Sites de Alta Performance, UI/UX e SEO" />
+  <meta
+    property="og:description"
+    content="Sites premium com design UI/UX, performance, SEO técnico e foco em conversão para marcas ambiciosas."
+  />
+  <meta property="og:url" content="https://maiolidesign.com.br/" />
+  <meta property="og:image" content="https://maiolidesign.com.br/img/logo-light.png" />
+  <meta property="og:image:alt" content="Logotipo da Maioli Design" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Maioli Design | Sites de Alta Performance" />
+  <meta
+    name="twitter:description"
+    content="Desenvolvimento de sites rápidos, elegantes, responsivos e otimizados para SEO e conversão."
+  />
+  <meta name="twitter:image" content="https://maiolidesign.com.br/img/logo-light.png" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://maiolidesign.com.br" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+  <link
+    rel="preload"
+    as="image"
+    href="https://maiolidesign.com.br/img/logo-light.png"
+    fetchpriority="high"
+  />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap-grid.min.css"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="styles.css?02" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Maioli Design",
+      "url": "https://maiolidesign.com.br/",
+      "logo": "https://maiolidesign.com.br/img/logo-light.png",
+      "description": "Estúdio especializado em desenvolvimento de sites premium, UI/UX, SEO técnico e performance web.",
+      "areaServed": "BR",
+      "telephone": "+55 11 97834-8787",
+      "email": "roberto@maiolidesign.com",
+      "sameAs": [
+        "https://instagram.com/maiolidesign"
+      ],
+      "serviceType": [
+        "Desenvolvimento de sites",
+        "Design UI/UX",
+        "SEO técnico",
+        "Otimização de performance web"
+      ]
+    }
+  </script>
 </head>
+
 <body>
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
   <div class="site-bg" aria-hidden="true">
     <span class="orb orb-one"></span>
     <span class="orb orb-two"></span>
     <span class="orb orb-three"></span>
   </div>
 
-  <nav class="navbar" data-navbar>
-    <div class="container">
-      <a class="brand" href="#hero" aria-label="Início Maioli Design">
-          <img src="https://maiolidesign.com.br/img/logo-light.png" height="36" alt="Maioli Design" style="height:36px;width:auto;display:block;" />
+  <header class="site-header">
+    <nav class="navbar" data-navbar aria-label="Navegação principal">
+      <div class="container">
+        <a class="brand" href="#hero" aria-label="Ir para o início da Maioli Design">
+          <img
+            src="https://maiolidesign.com.br/img/logo-light.png"
+            width="164"
+            height="36"
+            alt="Maioli Design"
+            decoding="async"
+            fetchpriority="high"
+            style="height:36px;width:auto;display:block;"
+          />
         </a>
-      <button class="nav-toggle" type="button" aria-label="Abrir navegação" aria-expanded="false" data-nav-toggle>
-        <span></span>
-        <span></span>
-      </button>
 
-      <div class="nav-menu" data-nav-menu>
-        <a href="#services">Serviços</a>
-        <a href="#portfolio">Portfólio</a>
-        <a href="#about">Sobre</a>
-        <a href="#testimonials">Resultados</a>
-        <a href="#contact" class="nav-cta">Solicitar orçamento</a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Abrir menu de navegação"
+          aria-controls="menu-principal"
+          aria-expanded="false"
+          data-nav-toggle
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+
+        <div class="nav-menu" id="menu-principal" data-nav-menu>
+          <a href="#services" aria-current="page">Serviços</a>
+          <a href="#portfolio">Portfólio</a>
+          <a href="#about">Sobre</a>
+          <a href="#testimonials">Resultados</a>
+          <a href="#contact" class="nav-cta">Solicitar orçamento</a>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
-  <main>
-    <section class="hero section" id="hero">
-      <div class="cybercore-scene" role="img" aria-label="Plano de fundo animado com grade cybercore">
+  <main id="conteudo-principal">
+    <section class="hero section" id="hero" aria-labelledby="hero-title">
+      <div class="cybercore-scene" aria-hidden="true">
         <div class="cybercore-floor"></div>
         <div class="cybercore-main-column"></div>
         <div class="cybercore-light-stream-container" data-cybercore-beams></div>
       </div>
+
       <div class="container">
         <div class="row align-items-center g-5">
           <div class="col-12 col-lg-7">
             <p class="eyebrow hero-item">Estúdio premium de web design</p>
-            <h1 class="hero-title hero-item">Sites que vendem.<br>Design que impressiona.</h1>
+
+            <h1 class="hero-title hero-item" id="hero-title">
+              Sites que vendem.<br />
+              Design que impressiona.
+            </h1>
+
             <p class="hero-copy hero-item">
-              Criamos experiências digitais rápidas, bonitas e focadas em converter visitantes em clientes.
+              Criamos experiências digitais rápidas, elegantes e orientadas por estratégia para transformar visitantes em oportunidades reais de negócio.
             </p>
-            <div class="hero-actions hero-item">
-              <a href="#contact" class="button button-primary" data-animated-button>Solicitar orçamento</a>
-              <a href="#portfolio" class="button button-ghost" data-animated-button>Ver trabalhos</a>
+
+            <div class="hero-actions hero-item" aria-label="Ações principais">
+              <a href="#contact" class="button button-primary" data-animated-button>
+                Solicitar orçamento
+              </a>
+              <a href="#portfolio" class="button button-ghost" data-animated-button>
+                Ver trabalhos
+              </a>
             </div>
-            <div class="hero-stats hero-item" aria-label="Destaques de performance da empresa">
+
+            <dl class="hero-stats hero-item" aria-label="Indicadores de resultado da Maioli Design">
               <div>
-                <strong>98+</strong>
-                <span>Pontuação de performance</span>
+                <dt><strong>98+</strong></dt>
+                <dd><span>Pontuação de performance</span></dd>
               </div>
               <div>
-                <strong>3.2x</strong>
-                <span>Crescimento de leads</span>
+                <dt><strong>3.2x</strong></dt>
+                <dd><span>Crescimento de leads</span></dd>
               </div>
               <div>
-                <strong>24/7</strong>
-                <span>Presença digital</span>
+                <dt><strong>24/7</strong></dt>
+                <dd><span>Presença digital ativa</span></dd>
               </div>
-            </div>
+            </dl>
           </div>
 
           <div class="col-12 col-lg-5">
-            <div class="hero-visual hero-item" aria-label="Prévia de painel de performance do site">
+            <div class="hero-visual hero-item" aria-hidden="true">
               <div class="browser-card">
                 <div class="browser-top">
-                  <span></span><span></span><span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </div>
+
                 <div class="dashboard-grid">
                   <div class="metric-card wide">
                     <span>Taxa de conversão</span>
                     <strong>+42%</strong>
                     <div class="metric-line"></div>
                   </div>
+
                   <div class="metric-card">
                     <span>Carregamento</span>
                     <strong>0.8s</strong>
                   </div>
+
                   <div class="metric-card">
                     <span>SEO</span>
                     <strong>96</strong>
                   </div>
+
                   <div class="metric-card wide visual-bars">
-                    <i></i><i></i><i></i><i></i><i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
                   </div>
                 </div>
               </div>
+
               <div class="floating-chip chip-one">Pronto para SEO</div>
               <div class="floating-chip chip-two">Mobile-first</div>
             </div>
@@ -105,211 +216,315 @@
       </div>
     </section>
 
-    <section class="section services" id="services">
+    <section class="section services" id="services" aria-labelledby="services-title">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-12 col-lg-8 text-center">
             <p class="eyebrow reveal">O que fazemos</p>
-            <h2 class="section-title reveal">Tudo que seu site precisa para parecer premium e performar perfeitamente.</h2>
+            <h2 class="section-title reveal" id="services-title">
+              Tudo que seu site precisa para parecer premium e performar perfeitamente.
+            </h2>
           </div>
         </div>
 
         <div class="row g-4 service-grid">
           <div class="col-12 col-md-6 col-lg-3">
-            <article class="service-card reveal-card">
-              <span class="card-icon">01</span>
-              <h3>Desenvolvimento de sites</h3>
-              <p>Sites limpos, escaláveis e responsivos, criados com práticas front-end focadas em performance.</p>
+            <article class="service-card reveal-card" aria-labelledby="service-websites">
+              <span class="card-icon" aria-hidden="true">01</span>
+              <h3 id="service-websites">Desenvolvimento de sites</h3>
+              <p>
+                Sites limpos, escaláveis e responsivos, criados com práticas front-end focadas em velocidade, clareza e conversão.
+              </p>
             </article>
           </div>
+
           <div class="col-12 col-md-6 col-lg-3">
-            <article class="service-card reveal-card">
-              <span class="card-icon">02</span>
-              <h3>Design UI/UX</h3>
-              <p>Interfaces premium, jornadas sem atrito e design de interação pensado nos detalhes.</p>
+            <article class="service-card reveal-card" aria-labelledby="service-uiux">
+              <span class="card-icon" aria-hidden="true">02</span>
+              <h3 id="service-uiux">Design UI/UX</h3>
+              <p>
+                Interfaces premium, jornadas sem atrito e decisões visuais orientadas por hierarquia, confiança e ação.
+              </p>
             </article>
           </div>
+
           <div class="col-12 col-md-6 col-lg-3">
-            <article class="service-card reveal-card">
-              <span class="card-icon">03</span>
-              <h3>Otimização SEO</h3>
-              <p>Estrutura técnica, marcação semântica e hierarquia de conteúdo criadas para facilitar a descoberta.</p>
+            <article class="service-card reveal-card" aria-labelledby="service-seo">
+              <span class="card-icon" aria-hidden="true">03</span>
+              <h3 id="service-seo">Otimização SEO</h3>
+              <p>
+                Estrutura técnica, marcação semântica, metadados e arquitetura de conteúdo preparadas para descoberta orgânica.
+              </p>
             </article>
           </div>
+
           <div class="col-12 col-md-6 col-lg-3">
-            <article class="service-card reveal-card">
-              <span class="card-icon">04</span>
-              <h3>Otimização de performance</h3>
-              <p>Carregamento rápido, renderização fluida e estratégia cuidadosa de assets para melhorar conversões.</p>
+            <article class="service-card reveal-card" aria-labelledby="service-performance">
+              <span class="card-icon" aria-hidden="true">04</span>
+              <h3 id="service-performance">Otimização de performance</h3>
+              <p>
+                Estratégia cuidadosa de assets, carregamento rápido e renderização fluida para melhorar experiência e conversões.
+              </p>
             </article>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section portfolio" id="portfolio">
+    <section class="section portfolio" id="portfolio" aria-labelledby="portfolio-title">
       <div class="container">
         <div class="row align-items-end g-4">
           <div class="col-12 col-lg-7">
             <p class="eyebrow reveal">Trabalhos selecionados</p>
-            <h2 class="section-title reveal">Experiências digitais projetadas para tornar marcas impossíveis de ignorar.</h2>
+            <h2 class="section-title reveal" id="portfolio-title">
+              Experiências digitais projetadas para tornar marcas impossíveis de ignorar.
+            </h2>
           </div>
+
           <div class="col-12 col-lg-5">
-            <p class="section-copy reveal">De páginas de lançamento a plataformas de conversão, cada projeto é moldado para clareza, velocidade e impacto mensurável no negócio.</p>
+            <p class="section-copy reveal">
+              De páginas de lançamento a plataformas de conversão, cada projeto é moldado para clareza, velocidade e impacto mensurável no negócio.
+            </p>
           </div>
         </div>
 
         <div class="row g-4 portfolio-grid">
-  <div class="col-12 col-md-6 col-lg-4">
-    <article class="portfolio-card reveal-card" data-portfolio-card>
-      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Guia Campo Belo e Região" width="900" height="600" loading="lazy" decoding="async" />
-      <div class="portfolio-overlay">
-        <span>Guia gastronômico</span>
-        <h3>Guia Campo Belo</h3>
-      </div>
-    </article>
-  </div>
-  <div class="col-12 col-md-6 col-lg-4">
-    <article class="portfolio-card reveal-card" data-portfolio-card>
-      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=900&q=80" alt="Construtora Hoss" width="900" height="600" loading="lazy" decoding="async" />
-      <div class="portfolio-overlay">
-        <span>Construção civil</span>
-        <h3>Construtora Hoss</h3>
-      </div>
-    </article>
-  </div>
-  <div class="col-12 col-md-6 col-lg-4">
-    <article class="portfolio-card reveal-card" data-portfolio-card>
-      <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=900&q=80" alt="Neon Music" width="900" height="600" loading="lazy" decoding="async" />
-      <div class="portfolio-overlay">
-        <span>Entretenimento</span>
-        <h3>Neon Music</h3>
-      </div>
-    </article>
-  </div>
-</div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="portfolio-card reveal-card" data-portfolio-card aria-labelledby="portfolio-campo-belo">
+              <img
+                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80"
+                alt="Mesa de restaurante representando projeto para guia gastronômico"
+                width="900"
+                height="600"
+                loading="lazy"
+                decoding="async"
+                referrerpolicy="no-referrer"
+              />
+              <div class="portfolio-overlay">
+                <span>Guia gastronômico</span>
+                <h3 id="portfolio-campo-belo">Guia Campo Belo</h3>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="portfolio-card reveal-card" data-portfolio-card aria-labelledby="portfolio-hoss">
+              <img
+                src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=900&q=80"
+                alt="Arquitetura corporativa representando projeto para construtora"
+                width="900"
+                height="600"
+                loading="lazy"
+                decoding="async"
+                referrerpolicy="no-referrer"
+              />
+              <div class="portfolio-overlay">
+                <span>Construção civil</span>
+                <h3 id="portfolio-hoss">Construtora Hoss</h3>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="portfolio-card reveal-card" data-portfolio-card aria-labelledby="portfolio-neon-music">
+              <img
+                src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=900&q=80"
+                alt="Mesa de som e iluminação representando projeto para entretenimento"
+                width="900"
+                height="600"
+                loading="lazy"
+                decoding="async"
+                referrerpolicy="no-referrer"
+              />
+              <div class="portfolio-overlay">
+                <span>Entretenimento</span>
+                <h3 id="portfolio-neon-music">Neon Music</h3>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section about" id="about">
+    <section class="section about" id="about" aria-labelledby="about-title">
       <div class="container">
         <div class="row align-items-center g-5">
           <div class="col-12 col-lg-5">
-            <div class="about-panel reveal-card">
+            <div class="about-panel reveal-card" aria-label="Pilares do processo da Maioli Design">
               <span>Estratégia</span>
               <span>Design</span>
               <span>Código</span>
               <span>Crescimento</span>
             </div>
           </div>
+
           <div class="col-12 col-lg-7">
             <p class="eyebrow reveal">Sobre nós</p>
-            <h2 class="section-title reveal text-reveal" data-text-reveal>Unimos precisão em design e engenharia front-end para criar sites com aparência premium, carregamento rápido e foco em conduzir visitantes à ação.</h2>
-            <p class="section-copy reveal">Nosso processo combina estratégia de marca, pensamento UX e execução técnica, para que seu site faça mais do que existir online — ele se torne um ativo de crescimento refinado.</p>
+            <h2 class="section-title reveal text-reveal" id="about-title" data-text-reveal>
+              Unimos precisão em design e engenharia front-end para criar sites com aparência premium, carregamento rápido e foco em conduzir visitantes à ação.
+            </h2>
+            <p class="section-copy reveal">
+              Nosso processo combina estratégia de marca, pensamento UX e execução técnica, para que seu site faça mais do que existir online — ele se torne um ativo de crescimento refinado.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section testimonials" id="testimonials">
+    <section class="section testimonials" id="testimonials" aria-labelledby="testimonials-title">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-12 col-lg-8 text-center">
             <p class="eyebrow reveal">Resultados dos clientes</p>
-            <h2 class="section-title reveal">Criado para fundadores, equipes e marcas que se importam com os detalhes.</h2>
+            <h2 class="section-title reveal" id="testimonials-title">
+              Criado para fundadores, equipes e marcas que se importam com os detalhes.
+            </h2>
           </div>
         </div>
 
-        <div class="testimonial-shell reveal-card">
-          <div class="testimonial-track" data-testimonial-track>
-            <article class="testimonial-card is-active">
-              <p>“O novo site imediatamente pareceu mais rápido, mais elegante e mais confiável. Nossos pedidos de orçamento aumentaram no primeiro mês.”</p>
+        <div class="testimonial-shell reveal-card" role="region" aria-roledescription="carrossel" aria-label="Depoimentos de clientes">
+          <div class="testimonial-track" data-testimonial-track aria-live="polite">
+            <article class="testimonial-card is-active" aria-labelledby="testimonial-camila">
+              <p>
+                “O novo site imediatamente pareceu mais rápido, mais elegante e mais confiável. Nossos pedidos de orçamento aumentaram no primeiro mês.”
+              </p>
               <div>
-                <strong>Camila Rocha</strong>
+                <strong id="testimonial-camila">Camila Rocha</strong>
                 <span>Fundadora, Aurora Studio</span>
               </div>
             </article>
-            <article class="testimonial-card">
-              <p>“Eles traduziram um serviço complexo em uma experiência simples e premium. As animações são suaves sem deixar nada lento.”</p>
+
+            <article class="testimonial-card" aria-labelledby="testimonial-daniel">
+              <p>
+                “Eles traduziram um serviço complexo em uma experiência simples e premium. As animações são suaves sem deixar nada lento.”
+              </p>
               <div>
-                <strong>Daniel Meyer</strong>
+                <strong id="testimonial-daniel">Daniel Meyer</strong>
                 <span>CEO, Flux Systems</span>
               </div>
             </article>
-            <article class="testimonial-card">
-              <p>“Nossa landing page finalmente reflete a qualidade do nosso produto. Limpa, rápida, responsiva e extremamente refinada.”</p>
+
+            <article class="testimonial-card" aria-labelledby="testimonial-marina">
+              <p>
+                “Nossa landing page finalmente reflete a qualidade do nosso produto. Limpa, rápida, responsiva e extremamente refinada.”
+              </p>
               <div>
-                <strong>Marina Costa</strong>
+                <strong id="testimonial-marina">Marina Costa</strong>
                 <span>Líder de Marketing, NovaStack</span>
               </div>
             </article>
           </div>
 
           <div class="testimonial-controls" aria-label="Controles dos depoimentos">
-            <button type="button" data-testimonial-prev aria-label="Depoimento anterior">Anterior</button>
-            <div class="testimonial-dots" data-testimonial-dots></div>
-            <button type="button" data-testimonial-next aria-label="Próximo depoimento">Próximo</button>
+            <button type="button" data-testimonial-prev aria-label="Mostrar depoimento anterior">
+              Anterior
+            </button>
+            <div class="testimonial-dots" data-testimonial-dots aria-label="Selecionar depoimento"></div>
+            <button type="button" data-testimonial-next aria-label="Mostrar próximo depoimento">
+              Próximo
+            </button>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section contact" id="contact">
-  <div class="container">
-    <div class="row g-5 align-items-center">
-      <div class="col-12 col-lg-6">
-        <p class="eyebrow reveal">Comece seu projeto</p>
-        <h2 class="section-title reveal">Pronto para um site que performa tão bem quanto parece?</h2>
-        <p class="section-copy reveal">Conte o que você está construindo. Vamos moldar um site premium, rápido e focado em conversão para sua marca.</p>
-      </div>
-      <div class="col-12 col-lg-6">
-        <div class="whatsapp-cta-section reveal-card">
-          <a
-            class="whatsapp-btn-large"
-            href="https://wa.me/5511978348787?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Maioli%20Design%20e%20quero%20saber%20mais%20sobre%20criar%20meu%20site."
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            Falar no WhatsApp agora
-          </a>
-          <div class="whatsapp-contact-info">
-            <a href="tel:+5511978348787">📞 +55 (11) 97834-8787</a>
-            <a href="mailto:roberto@maiolidesign.com">✉️ roberto@maiolidesign.com</a>
-            <a href="https://instagram.com/maiolidesign" target="_blank" rel="noopener noreferrer">📸 @maiolidesign</a>
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-12 col-lg-6">
+            <p class="eyebrow reveal">Comece seu projeto</p>
+            <h2 class="section-title reveal" id="contact-title">
+              Pronto para um site que performa tão bem quanto parece?
+            </h2>
+            <p class="section-copy reveal">
+              Conte o que você está construindo. Vamos moldar um site premium, rápido e focado em conversão para sua marca.
+            </p>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <address class="whatsapp-cta-section reveal-card">
+              <a
+                class="whatsapp-btn-large"
+                href="https://wa.me/5511978348787?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Maioli%20Design%20e%20quero%20saber%20mais%20sobre%20criar%20meu%20site."
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Falar com a Maioli Design no WhatsApp, abre em nova aba"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Falar no WhatsApp agora
+              </a>
+
+              <div class="whatsapp-contact-info">
+                <a href="tel:+5511978348787" aria-label="Ligar para Maioli Design no número +55 11 97834-8787">
+                  Telefone: +55 (11) 97834-8787
+                </a>
+                <a href="mailto:roberto@maiolidesign.com" aria-label="Enviar e-mail para roberto@maiolidesign.com">
+                  E-mail: roberto@maiolidesign.com
+                </a>
+                <a
+                  href="https://instagram.com/maiolidesign"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Abrir Instagram da Maioli Design em nova aba"
+                >
+                  Instagram: @maiolidesign
+                </a>
+              </div>
+            </address>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer" aria-labelledby="footer-title">
     <div class="container">
       <div class="row align-items-center g-4">
         <div class="col-12 col-md-6">
-          <a class="brand" href="#hero" aria-label="Início Maioli Design">
-          <img src="https://maiolidesign.com.br/img/logo-light.png" height="32" alt="Maioli Design" style="height:32px;width:auto;display:block;" />
-        </a>
+          <a class="brand" href="#hero" aria-label="Voltar ao início da Maioli Design">
+            <img
+              src="https://maiolidesign.com.br/img/logo-light.png"
+              width="146"
+              height="32"
+              alt="Maioli Design"
+              loading="lazy"
+              decoding="async"
+              style="height:32px;width:auto;display:block;"
+            />
+          </a>
         </div>
+
         <div class="col-12 col-md-6">
-          <div class="footer-links">
-            <a href="#">Instagram</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Behance</a>
-          </div>
+          <h2 class="visually-hidden" id="footer-title">Links institucionais</h2>
+          <nav class="footer-links" aria-label="Links sociais">
+            <a
+              href="https://instagram.com/maiolidesign"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+            <a href="mailto:roberto@maiolidesign.com">
+              E-mail
+            </a>
+            <a href="tel:+5511978348787">
+              Telefone
+            </a>
+          </nav>
         </div>
+
         <div class="col-12">
-          <p class="footer-note">© 2026 Maioli Design. Sites de alta performance para marcas ambiciosas.</p>
+          <p class="footer-note">
+            © 2026 Maioli Design. Sites de alta performance para marcas ambiciosas.
+          </p>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
-  <script src="script.js?01"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+  <script src="script.js?01" defer></script>
 </body>
 </html>
