@@ -303,6 +303,48 @@ function setupFormAnimations() {
   });
 }
 
+function setupTechOrbit() {
+  const orbit = document.querySelector("[data-tech-orbit]");
+  if (!orbit) return;
+
+  const core = orbit.querySelector(".orbit-core");
+  const items = [...orbit.querySelectorAll(".orbit-item")];
+  const targets = [core, ...items].filter(Boolean);
+
+  if (prefersReducedMotion) {
+    anime.set(targets, { opacity: 1 });
+    return;
+  }
+
+  anime.set(targets, { opacity: 0 });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      anime({
+        targets: core,
+        opacity: [0, 1],
+        scale: [0.82, 1],
+        duration: 760,
+        easing: "easeOutElastic(1, .72)"
+      });
+
+      anime({
+        targets: items,
+        opacity: [0, 1],
+        delay: anime.stagger(70, { start: 120 }),
+        duration: 560,
+        easing: "easeOutCubic"
+      });
+
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.35 });
+
+  observer.observe(orbit);
+}
+
 function createTestimonialDots() {
   testimonialCards.forEach((_, index) => {
     const dot = document.createElement("button");
@@ -382,7 +424,7 @@ function setupCustomCursor() {
 // Contador animado nas stats do hero
 function setupStatCounters() {
   const stats = [
-    { el: document.querySelector(".hero-stats div:nth-child(1) strong"), target: 98, suffix: "+" },
+    { el: document.querySelector(".hero-stats div:nth-child(1) strong"), target: 90, suffix: "+" },
     { el: document.querySelector(".hero-stats div:nth-child(2) strong"), target: 3.2, suffix: "x", decimals: 1 },
   ];
 
@@ -443,6 +485,7 @@ animateBackground();
 setupTextReveal();
 setupScrollReveals();
 setupButtonAnimations();
+setupTechOrbit();
 setupPortfolioHover();
 setupFormAnimations();
 setupTestimonials();
