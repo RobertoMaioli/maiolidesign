@@ -8,12 +8,15 @@ dist/
 build/
 out/
 .claude
-.openclaude
+
+maiolidesign/
+
 # Variáveis de ambiente e segredos
 .env
 .env.local
 .env.*.local
-.openclaude-profile.json
+
+CLAUDE.md
 
 # Editores
 .vscode/
